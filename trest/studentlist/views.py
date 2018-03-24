@@ -1,5 +1,4 @@
-from django.http import Http404
-from django.shortcuts import render
+from django.shortcuts import render, get_object_or_404
 from .models import Student
 
 # Create your views here.
@@ -14,10 +13,7 @@ def index(request):
 
 
 def details(request, student_id):
-    try:
-        student = Student.objects.get(pk=student_id)
-    except Student.DoesNotExist:
-        raise Http404('Student does not exist')
+    student = get_object_or_404(Student, pk=student_id)
     context = {
         'student': student
     }

@@ -1,7 +1,7 @@
 {% if latest_students %}
     <ul>
     {% for student in latest_students %}
-        <li><a href="/students/{{ student.id }}/">{{ student }}</a></li>
+        <li><a href="{% url 'details' student.id %}">{{ student }}</a></li>
     {% endfor %}
     </ul>
 {% else %}
