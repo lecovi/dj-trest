@@ -1,5 +1,8 @@
-from django.http import HttpResponse
+from django.shortcuts import render
 
 
 def index(request):
-    return HttpResponse('Student List!')
+    context = {
+        'message': 'Student List from template!'
+    }
+    return render(request, 'trest/index.html', context)
