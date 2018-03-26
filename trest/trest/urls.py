@@ -17,12 +17,15 @@ from django.contrib import admin
 from django.urls import path, include
 from rest_framework import routers
 from quickstart import views
+from studentlist import views as st_view
 from .views import index
 
 
 router = routers.DefaultRouter()
 router.register(r'users', views.UserViewSet)
 router.register(r'groups', views.GroupViewSet)
+router.register('students', st_view.StudentViewSet)
+router.register('doctypes', st_view.DocTypeViewSet)
 
 urlpatterns = [
     path('api/rest/', include(router.urls)),
