@@ -16,7 +16,7 @@ class Student(models.Model):
     doc_type = models.ForeignKey(DocType, on_delete=models.CASCADE)
     doc_number = models.IntegerField()
     email = models.EmailField()
-    created_on = models.DateTimeField('created on')
+    created_on = models.DateTimeField('created on', auto_now_add=True)
 
     def __str__(self):
         return '{}, {} <{}>'.format(self.lastname.upper(), self.name, self.email)
