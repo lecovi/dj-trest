@@ -5,7 +5,7 @@ from .models import Student, DocType
 class StudentSerializer(serializers.HyperlinkedModelSerializer):
     class Meta:
         model = Student
-        fields = ('name', 'lastname', 'doc_type', 'doc_number', 'email')
+        fields = ('pk', 'name', 'lastname', 'doc_type', 'doc_number', 'email', 'url', 'created_on')
 
 
 class DocTypeSerializer(serializers.HyperlinkedModelSerializer):
