@@ -10,6 +10,7 @@ name = "pypi"
 django = "*"
 djangorestframework = "*"
 "psycopg2-binary" = "*"
+requests = "*"
 
 
 [dev-packages]
