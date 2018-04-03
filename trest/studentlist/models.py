@@ -1,5 +1,5 @@
 from django.db import models
-
+from datetime import datetime
 # Create your models here.
 
 
@@ -17,6 +17,7 @@ class Student(models.Model):
     doc_number = models.IntegerField()
     email = models.EmailField()
     created_on = models.DateTimeField('created on', auto_now_add=True)
+    updated_on = models.DateTimeField('updated on', default=datetime.now)
 
     def __str__(self):
         return '{}, {} <{}>'.format(self.lastname.upper(), self.name, self.email)
