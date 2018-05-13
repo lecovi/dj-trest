@@ -1,0 +1,34 @@
+version: '3'
+
+volumes:
+  dbdev:
+
+services:
+  postgres:
+    image: postgres:9.6-alpine
+    environment:
+      - POSTGRES_USER=${POSTGRES_USER}
+      - POSTGRES_PASSWORD=${POSTGRES_PASSWORD}
+      - POSTGRES_DB=${POSTGRES_DB}
+    volumes:
+      - dbdev:/var/lib/postgresql/data/
+
+  pgadmin:
+    image: dpage/pgadmin4
+    env_file:
+      - .env
+    depends_on:
+      - postgres
+    ports:
+      - "5005:80"
+
+  trest:
+    build: .
+    env_file:
+      - .env
+    ports:
+      - "8000:8000"
+    depends_on:
+      - postgres
+    volumes:
+      - .:/code
