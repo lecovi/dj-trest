@@ -1,6 +1,5 @@
 from django.db import models
-from datetime import datetime
-# Create your models here.
+from django.utils import timezone
 
 
 class DocType(models.Model):
@@ -17,8 +16,8 @@ class Student(models.Model):
     doc_number = models.IntegerField()
     email = models.EmailField()
     created_on = models.DateTimeField('created on', auto_now_add=True)
-    updated_on = models.DateTimeField('updated on', default=datetime.now)
+    updated_on = models.DateTimeField('updated on', default=timezone.now)
 
     def __str__(self):
-        return '{}, {} <{}>'.format(self.lastname.upper(), self.name, self.email)
+        return '{}, {} <{}>'.format(self.lastname, self.name, self.email)
 
