@@ -6,6 +6,7 @@ help:
 	@echo "clean-prod	-- remove production containers"
 	@echo "createdb	-- create inital DB"
 	@echo "dockershell 	-- opens docker /bin/bash"
+	@echo "migrations 	-- make Django migrations"
 	@echo "ps-dev 		-- prints development containers status"
 	@echo "ps-prod 	-- prints production containers status"
 	@echo "pyshell 	-- opens python shell"
@@ -60,6 +61,9 @@ createdb:
 
 rebuilddb:
 	${MANAGE} db rebuild
+
+migrations:
+	${MANAGE} makemigrations
 
 pyshell:
 	${MANAGE} shell
